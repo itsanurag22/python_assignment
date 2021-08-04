@@ -6,6 +6,7 @@ import json
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+import fb_cred
 
 import time
 # def err(username):
@@ -80,8 +81,8 @@ def scrap(username):
     driver.find_element(By.XPATH, '//*[@id="mobile_login_bar"]/div[2]/a[2]').click()
     email = driver.find_element_by_id("m_login_email")
     passwd = driver.find_element_by_id("m_login_password")
-    email.send_keys("anurag.borhade22@gmail.com")
-    passwd.send_keys("riseabovehate22")
+    email.send_keys(fb_cred.email)
+    passwd.send_keys(fb_cred.password)
     passwd.send_keys(Keys.RETURN)
     time.sleep(10)
 
