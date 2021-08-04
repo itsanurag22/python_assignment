@@ -121,7 +121,7 @@ def scrap(username):
     driver.quit()
 
 
-scrap("radhikagarg1601")
+#scrap("radhikagarg1601")
 
 
 
