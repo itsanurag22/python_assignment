@@ -14,7 +14,7 @@ class matrix:
                 addM.append(add_row)
             return addM
         else:
-            return "Not valid"
+            return "Matrices should be of same order for addition"
 
 
     def __sub__(self, other):
@@ -25,7 +25,7 @@ class matrix:
                 subM.append(sub_row)
             return subM
         else:
-            return "Not valid"
+            return "Matrices should be of same order for subtraction"
 
     def __mul__(self, other):
         if(len(self.m[0]) == len(other.m)):
@@ -38,7 +38,7 @@ class matrix:
                         mul_mat.m[i][j] += self.m[i][k] * other.m[k][j]
             return mul_mat
         else:
-            return "Not valid"
+            return "Matrix multiplication for matrices of such order not possible"
     def __pow__(self, x, modulo=None):
         if(len(self.m) == len(self.m[0])):
             exp = matrix([])
@@ -48,7 +48,7 @@ class matrix:
                 exp = exp * self
             return exp.m
         else:
-            return "Not a square matrix"
+            return "Not a square matrix so exponentiation not possible"
 
     def det(self):
         # print(len(self.m))
@@ -87,7 +87,7 @@ class matrix:
                 return int(x / total)
 
         else:
-            return "Not a square matrix"
+            return "Not a square matrix so cannot find determinant"
 
 
 
