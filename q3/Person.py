@@ -1,4 +1,5 @@
 from connection import *
+# establishes connection to database "scrape" on localhost
 import json
 
 def update(name, city, work, username):
