@@ -11,8 +11,6 @@ class Testing(unittest.TestCase):
         with self.assertRaises(ValueError):
             scrap("anurag")
     def test_for_old(self):
-    #     # t = scrap('radhikagarg1601')
-    #     # self.assertEqual(, 'My name is Radhika Garg and my current city is Roorkee')
         outp = io.StringIO()
         sys.stdout = outp
         scrap("anshul.d.sharma.7")
