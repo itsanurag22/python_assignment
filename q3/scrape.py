@@ -17,17 +17,17 @@ def dec(function):
         my_cursor = conn.cursor()
         query = "SELECT * FROM user where username= '{}'".format(username)
         my_cursor.execute(query)
-        res = my_cursor.fetchall()
-        if len(res) != 0:
-            for i in res:
+        table_data = my_cursor.fetchall()
+        if len(table_data) != 0:
+            for item in table_data:
                 # print(res)
-                if username in i:
-                    done = user_check(res)
+                if username in item:
+                    done = user_check(table_data)
                     # print(done)
                     if (done is None):
                         function(username)
                     else:
-                        user_check(res).show()
+                        user_check(table_data).show()
         else:
             raise ValueError('User not valid')
 
