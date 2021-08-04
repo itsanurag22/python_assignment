@@ -3,13 +3,10 @@ import json
 
 def update(name, city, work, username):
     if len(work) == 0:
-        # sql = "UPDATE user SET name = %s, city = %s WHERE username = %s"
-        # val = (name, city, username)
         conn.cursor().execute("UPDATE user SET name = %s, city = %s WHERE username = %s",(name, city, username))
         conn.commit()
     else:
-        # sql = "UPDATE user SET name = %s, work = %s, city = %s WHERE username = %s"
-        # val = (name, json.dumps(work), city, username)
+        
         conn.cursor().execute("UPDATE user SET name = %s, work = %s, city = %s WHERE username = %s", (name, json.dumps(work), city, username))
         conn.commit()
 class Person:
