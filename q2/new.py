@@ -1,5 +1,5 @@
 import unittest
-class matrix:
+class Matrix:
     def __init__(self, mat):
         self.m = mat
 
@@ -29,7 +29,7 @@ class matrix:
 
     def __mul__(self, other):
         if(len(self.m[0]) == len(other.m)):
-            mul_mat = matrix([])
+            mul_mat = Matrix([])
             mul_mat.m = [[0 for i in range(len(other.m[0]))] for j in range(len(self.m))]
             for i in range(len(self.m)):
                 for j in range(len(other.m[0])):
@@ -41,7 +41,7 @@ class matrix:
             return "Matrix multiplication for matrices of such order not possible"
     def __pow__(self, x, modulo=None):
         if(len(self.m) == len(self.m[0])):
-            exp = matrix([])
+            exp = Matrix([])
             exp.m = self.m
             # print(exp.m)
             for k in range(x-1):
@@ -92,10 +92,10 @@ class matrix:
 
 
 
-# p1 = matrix([[2,3,4], [4,3,7], [5,4,1]])
+# p1 = Matrix([[2,3,4], [4,3,7], [5,4,1]])
 # print(p1**3)
-# p1 = matrix([[2, 3, 6], [4, 5, 8]])
-# p2 = matrix([[2, 3, 7], [4, 5, 7], [1, 1, 1]])
+# p1 = Matrix([[2, 3, 6], [4, 5, 8]])
+# p2 = Matrix([[2, 3, 7], [4, 5, 7], [1, 1, 1]])
 # print(p1+p2)
 # print(p1-p2)
 # print((p1*p2).show())
@@ -104,26 +104,26 @@ class matrix:
 
 class Testing(unittest.TestCase):
     def test_add(self):
-        p1 = matrix([[2, 3, 6], [4, 5, 8]])
-        p2 = matrix([[2, 3, 7], [4, 5, 7]])
+        p1 = Matrix([[2, 3, 6], [4, 5, 8]])
+        p2 = Matrix([[2, 3, 7], [4, 5, 7]])
         add = p1+p2
         self.assertEqual(add, [[4,6,13], [8, 10, 15]])
     def test_sub(self):
-        p1 = matrix([[2, 3, 6], [4, 5, 8]])
-        p2 = matrix([[2, 3, 7], [4, 5, 7]])
+        p1 = Matrix([[2, 3, 6], [4, 5, 8]])
+        p2 = Matrix([[2, 3, 7], [4, 5, 7]])
         sub = p1-p2
         self.assertEqual(sub, [[0,0,-1], [0, 0, 1]])
     def test_mul(self):
-        p1 = matrix([[2, 3, 6], [4, 5, 8]])
-        p2 = matrix([[2, 3, 7], [4, 5, 7], [1, 1, 1]])
+        p1 = Matrix([[2, 3, 6], [4, 5, 8]])
+        p2 = Matrix([[2, 3, 7], [4, 5, 7], [1, 1, 1]])
         multi = p1*p2
         self.assertEqual(multi.show(), [[22, 27, 41], [36, 45, 71]])
     def test_det(self):
-        p1 = matrix([[2,3,4], [4,3,7], [5,4,1]])
+        p1 = Matrix([[2,3,4], [4,3,7], [5,4,1]])
         deter = p1.det()
         self.assertEqual(deter, 47)
     def test_pow(self):
-        p1 = matrix([[2, 3, 4], [4, 3, 7], [5, 4, 1]])
+        p1 = Matrix([[2, 3, 4], [4, 3, 7], [5, 4, 1]])
         power = p1**3
         self.assertEqual(power, [[361, 333, 394], [526, 488, 607], [431, 382, 390]])
 
